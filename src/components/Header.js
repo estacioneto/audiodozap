@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import config from '../../config'
 import HeadphoneIcon from './HeadphoneIcon'
+import Search from './Search'
 import styled from 'styled-components'
 
 const Title = styled.h1`
@@ -18,8 +19,14 @@ const Small = styled.small`
   color: ${(props) => props.theme.colors.primaryLight};
 `
 
+const searchIndices = [{ name: 'Audios', title: `Audios`, hitComp: `AudioHit` }]
+
 const Header = () => (
-  <header>
+  <header
+    css={css`
+      position: relative;
+    `}
+  >
     <Link to="/">
       <div
         css={css`
@@ -34,6 +41,8 @@ const Header = () => (
         </Title>
       </div>
     </Link>
+
+    <Search collapse indices={searchIndices} />
   </header>
 )
 
